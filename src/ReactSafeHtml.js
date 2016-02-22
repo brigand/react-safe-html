@@ -5,8 +5,8 @@ var components = require('./components/index');
 
 module.exports = class ReactSafeHtml extends React.Component {
   static propTypes = {
-    html: PropTypes.string,
-    components: PropTypes.object, // e.g. {div: Component}
+    html: React.PropTypes.string,
+    components: React.PropTypes.object, // e.g. {div: Component}
   };
 
   static defaultProps = {
@@ -20,7 +20,7 @@ module.exports = class ReactSafeHtml extends React.Component {
   render() {
     var parsed = parse(this.props.html);
     var tree = toReactElements(parsed, this.props.components);
-    return tree;
+    return tree.type, tree.props;
   }
 }
 

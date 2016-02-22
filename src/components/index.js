@@ -1,3 +1,4 @@
+var React = require('react');
 exports.createSimpleElement = createSimpleElement;
 exports.makeElements = makeElements;
 
@@ -18,12 +19,11 @@ function createSimpleElement(tag, allowed, extraProps={}) {
 
     Object.assign(resultProps, extraProps);
 
-    return React.createElement(tag, resultProps, props.children);
+    return React.createElement(tag, resultProps, ...(props.children||[]));
   };
 }
 
 var standardAllowedProps = {
-  class: (value) => ['className', value],
   height: true,
   width: true,
   href: (value) => ['href', value], // TODO: sanatize href
