@@ -5394,6 +5394,14 @@ function makeElements(standardAllowedProps) {
   makeSimpleAndAssign('img');
   makeSimpleAndAssign('p');
 
+  // Style
+  makeSimpleAndAssign('b');
+  makeSimpleAndAssign('strong');
+  makeSimpleAndAssign('i');
+  makeSimpleAndAssign('em');
+  makeSimpleAndAssign('u');
+  makeSimpleAndAssign('strike');
+
   // Tables
   makeSimpleAndAssign('table');
   makeSimpleAndAssign('tr');
@@ -5403,7 +5411,7 @@ function makeElements(standardAllowedProps) {
 
   // Headers
   ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7'].forEach(function (tag) {
-    return makeSimpleAndAssign('tag');
+    return makeSimpleAndAssign(tag);
   });
 
   return elements;
