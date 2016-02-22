@@ -39,5 +39,9 @@
     "jsdom": "^8.0.4",
     "mocha": "^2.4.5",
     "react": "^0.14.7"
+  },
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "htmlparser2": "^3.9.0"
   }
 }
