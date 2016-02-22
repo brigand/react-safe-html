@@ -1,4 +1,5 @@
 var React = require('react');
+
 exports.createSimpleElement = createSimpleElement;
 exports.makeElements = makeElements;
 
@@ -26,8 +27,8 @@ function createSimpleElement(tag, allowed, extraProps={}) {
 var standardAllowedProps = {
   height: true,
   width: true,
-  href: (value) => ['href', value], // TODO: sanatize href
   placeholder: true,
+  src: true,
 };
 
 exports.standardAllowedProps = standardAllowedProps;
@@ -42,7 +43,15 @@ function makeElements(standardAllowedProps) {
   // Basic elements
   makeSimpleAndAssign('div');
   makeSimpleAndAssign('span');
-  makeSimpleAndAssign('a');
+  makeSimpleAndAssign('a', {
+    href: (value) => {
+      var proto = value.split(':').shift();
+      if (proto !== 'http' && proto !== 'https' && proto !== 'ftp') {
+        value = undefined;
+      }
+      return ['href', value];
+    }
+  });
   makeSimpleAndAssign('img');
   makeSimpleAndAssign('p');
 

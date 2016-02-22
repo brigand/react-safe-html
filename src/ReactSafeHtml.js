@@ -1,7 +1,7 @@
 var React = require('react');
 var parse = require('./parse');
 var toReactElements = require('./toReactElements.js');
-var components = require('./components/index');
+var components = require('./components');
 
 module.exports = class ReactSafeHtml extends React.Component {
   static propTypes = {
@@ -20,7 +20,7 @@ module.exports = class ReactSafeHtml extends React.Component {
   render() {
     var parsed = parse(this.props.html);
     var tree = toReactElements(parsed, this.props.components);
-    return tree.type, tree.props;
+    return tree;
   }
 }
 

@@ -1,5 +1,7 @@
 var cheerio = require('cheerio');
 var htmlparser = require('htmlparser2');
+var {AllHtmlEntities} = require('html-entities');
+var entities = new AllHtmlEntities();
 
 type ReactSafeNode = {
   type: string;
@@ -17,7 +19,7 @@ module.exports = function parse(str): Array<ReactSafeNode> {
       stack.push(element);
     },
     ontext: (text) => {
-      stack[stack.length - 1].children.push(text);
+      stack[stack.length - 1].children.push(entities.decode(text));
     },
     onclosetag: (name) => {
       stack.pop();
