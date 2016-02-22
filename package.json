@@ -1,0 +1,43 @@
+{
+  "name": "react-safe-html",
+  "version": "0.1.0",
+  "description": "render user provided html safely by using react components",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "lib/__test__"
+  },
+  "scripts": {
+    "test": "mocha lib/__test__",
+    "build": "babel src --out-dir lib",
+    "watch": "babel src --out-dir lib --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brigand/react-safe-html.git"
+  },
+  "keywords": [
+    "react",
+    "html",
+    "safe",
+    "security",
+    "react-component"
+  ],
+  "author": "Frankie Bagnardi <f.bagnardi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brigand/react-safe-html/issues"
+  },
+  "homepage": "https://github.com/brigand/react-safe-html#readme",
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.0.0",
+    "jsdom": "^8.0.4",
+    "mocha": "^2.4.5",
+    "react": "^0.14.7"
+  }
+}
