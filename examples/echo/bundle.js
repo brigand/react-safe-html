@@ -5260,7 +5260,7 @@ module.exports = (_temp = _class = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var parsed = parse(this.props.html);
+      var parsed = parse(this.props.html + ' ');
       var tree = toReactElements(parsed, this.props.components);
       return tree;
     }
