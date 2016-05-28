@@ -18,7 +18,7 @@ module.exports = class ReactSafeHtml extends React.Component {
   }
 
   render() {
-    var parsed = parse(this.props.html);
+    var parsed = parse(this.props.html + ' ');
     var tree = toReactElements(parsed, this.props.components);
     return tree;
   }
