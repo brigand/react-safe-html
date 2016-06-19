@@ -25,15 +25,11 @@ function createSimpleElement(tag, allowed, extraProps={}) {
 }
 
 var standardAllowedProps = {
-  height: true,
-  width: true,
-  placeholder: true,
-  src: true,
 };
 
 exports.standardAllowedProps = standardAllowedProps;
 
-function makeElements(standardAllowedProps) {
+function makeElements(standardAllowedProps={}) {
   var elements = {};
   var makeSimple = (tag, extraAllowededProps={}, extraProps={}) => (
       createSimpleElement(tag, {...standardAllowedProps, ...extraAllowededProps}, extraProps)
@@ -52,7 +48,11 @@ function makeElements(standardAllowedProps) {
       return ['href', value];
     }
   });
-  makeSimpleAndAssign('img');
+  makeSimpleAndAssign('img', {
+    width: true,
+    height: true,
+    src: true,
+  });
   makeSimpleAndAssign('p');
 
   // Style

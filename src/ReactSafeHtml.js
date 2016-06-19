@@ -3,7 +3,7 @@ var parse = require('./parse');
 var toReactElements = require('./toReactElements.js');
 var components = require('./components');
 
-module.exports = class ReactSafeHtml extends React.Component {
+class ReactSafeHtml extends React.Component {
   static propTypes = {
     html: React.PropTypes.string,
     components: React.PropTypes.object, // e.g. {div: Component}
@@ -22,5 +22,10 @@ module.exports = class ReactSafeHtml extends React.Component {
     var tree = toReactElements(parsed, this.props.components);
     return tree;
   }
-}
+};
+
+ReactSafeHtml.makeElements = components.makeElements;
+ReactSafeHtml.createSimpleElement = components.createSimpleElement;
+
+module.exports = ReactSafeHtml;
 
