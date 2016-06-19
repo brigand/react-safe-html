@@ -18,11 +18,44 @@ And require it:
 ```js
 var ReactSafeHtml = require('react-safe-html');
 // ...
-<ReactSafeHtml html={html} components={ReactSafeHtml.defaultComponents} />
+<ReactSafeHtml html={html} />
 ```
 
 
 ## Customization
 
-TODO: write this
+You can create a custom element set to allow.
+
+```js
+// the default allowed components
+var components = ReactSafeHtml.components.makeElements({});
+```
+
+The argument is a mapping of allowed properties for all elements, for example you may pass `{style: true}` to allow
+style props on all elements.
+
+You may also pass a function which gets the attribute value and returns a tupple of `[propName, propValue]`.
+This is the same as `{style: true}`: 
+`{style: (theStyleString) => ['style', theStyleString]}`.
+
+### Adding/replacing elements
+
+You may want to add extra elements to the allowed set, or remove some.
+
+`createSimpleElement` takes an object like the one described above.
+
+```js
+delete components.img;
+components.input = ReactSafeHtml.components.createSimpleElement('input', {
+  value: true,
+  placeholder: true,
+  'tab-index': (index) => ['tabIndex', index],
+});
+```
+
+When you're done customizing, pass it as an extra prop to `ReactSafeHtml`.
+
+```js
+<ReactSafeHtml html={html} components={components} />
+```
 

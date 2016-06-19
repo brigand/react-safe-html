@@ -24,8 +24,7 @@ class ReactSafeHtml extends React.Component {
   }
 };
 
-ReactSafeHtml.makeElements = components.makeElements;
-ReactSafeHtml.createSimpleElement = components.createSimpleElement;
+ReactSafeHtml.components = components;
 
 module.exports = ReactSafeHtml;
 
