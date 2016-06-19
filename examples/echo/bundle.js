@@ -5217,8 +5217,6 @@ var _createClass = function () {
   };
 }();
 
-var _class, _temp;
-
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");
@@ -5242,7 +5240,7 @@ var parse = require('./parse');
 var toReactElements = require('./toReactElements.js');
 var components = require('./components');
 
-module.exports = (_temp = _class = function (_React$Component) {
+var ReactSafeHtml = function (_React$Component) {
   _inherits(ReactSafeHtml, _React$Component);
 
   function ReactSafeHtml() {
@@ -5267,11 +5265,20 @@ module.exports = (_temp = _class = function (_React$Component) {
   }]);
 
   return ReactSafeHtml;
-}(React.Component), _class.propTypes = {
+}(React.Component);
+
+ReactSafeHtml.propTypes = {
   html: React.PropTypes.string,
-  components: React.PropTypes.object }, _class.defaultProps = {
+  components: React.PropTypes.object };
+ReactSafeHtml.defaultProps = {
   components: components.makeElements(components.standardAllowedProps)
-}, _temp);
+};
+;
+
+ReactSafeHtml.makeElements = components.makeElements;
+ReactSafeHtml.createSimpleElement = components.createSimpleElement;
+
+module.exports = ReactSafeHtml;
 
 },{"./components":31,"./parse":33,"./toReactElements.js":34,"react":260}],31:[function(require,module,exports){
 'use strict';
@@ -5355,16 +5362,13 @@ function createSimpleElement(tag, allowed) {
   };
 }
 
-var standardAllowedProps = {
-  height: true,
-  width: true,
-  placeholder: true,
-  src: true
-};
+var standardAllowedProps = {};
 
 exports.standardAllowedProps = standardAllowedProps;
 
-function makeElements(standardAllowedProps) {
+function makeElements() {
+  var standardAllowedProps = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
   var elements = {};
   var makeSimple = function makeSimple(tag) {
     var extraAllowededProps = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
@@ -5391,7 +5395,11 @@ function makeElements(standardAllowedProps) {
       return ['href', value];
     }
   });
-  makeSimpleAndAssign('img');
+  makeSimpleAndAssign('img', {
+    width: true,
+    height: true,
+    src: true
+  });
   makeSimpleAndAssign('p');
 
   // Style
