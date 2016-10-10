@@ -1,6 +1,6 @@
 var parse = require('../parse.js');
 var {expect} = require('chai');
-var log = (x) => console.error(JSON.stringify(x, null, 2));
+var log = (x) => console.log(JSON.stringify(x, null, 2));
 
 describe('parse', () => {
   it('parses a simple string', () => {

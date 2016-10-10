@@ -7,7 +7,7 @@
     "test": "lib/__test__"
   },
   "scripts": {
-    "test": "mocha lib/__test__",
+    "test": "jest",
     "build": "babel src --out-dir lib",
     "watch": "babel src --out-dir lib --watch"
   },
@@ -36,6 +36,7 @@
     "babel-preset-stage-1": "^6.16.0",
     "chai": "^3.5.0",
     "enzyme": "^2.4.1",
+    "jest": "^16.0.1",
     "jsdom": "^9.6.0",
     "mocha": "^3.1.1",
     "react": "^15.3.2"
