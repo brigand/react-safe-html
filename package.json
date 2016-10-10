@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "babel src --out-dir lib",
-    "watch": "babel src --out-dir lib --watch"
+    "build": "babel src --out-dir lib --ignore src/__tests__",
+    "watch": "npm run build -- --watch"
   },
   "repository": {
     "type": "git",

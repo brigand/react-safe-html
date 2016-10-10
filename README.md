@@ -53,6 +53,12 @@ components.input = ReactSafeHtml.components.createSimpleElement('input', {
 });
 ```
 
+You can override the behavior for text nodes with a special component type `'#text'`.
+
+```jsx
+components['#text'] = (string) => <p>{string}</p>;
+```
+
 When you're done customizing, pass it as an extra prop to `ReactSafeHtml`.
 
 ```js
