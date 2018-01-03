@@ -1,12 +1,13 @@
 var React = require('react');
+var PropTypes = require('prop-types');
 var parse = require('./parse');
 var toReactElements = require('./toReactElements.js');
 var components = require('./components');
 
 class ReactSafeHtml extends React.Component {
   static propTypes = {
-    html: React.PropTypes.string,
-    components: React.PropTypes.object, // e.g. {div: Component}
+    html: PropTypes.string,
+    components: PropTypes.object, // e.g. {div: Component}
   };
 
   static defaultProps = {
