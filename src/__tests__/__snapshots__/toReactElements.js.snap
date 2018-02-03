@@ -1,9 +1,9 @@
 exports[`test toReactElements basic 1`] = `
-<function div() /* istanbul ignore next */{return {};}>
+<div>
   <span>
     a child
   </span>
-</function div() /* istanbul ignore next */{return {};}>
+</div>
 `;
 
 exports[`test toReactElements override text 1`] = `
@@ -13,30 +13,6 @@ exports[`test toReactElements override text 1`] = `
       data-foo="bar">
       a child
     </p>
-  </span>
-</span>
-`;
-
-exports[`toReactElements basic 1`] = `
-<div>
-  <span>
-    a child
-  </span>
-</div>
-`;
-
-exports[`toReactElements override text 1`] = `
-<span>
-  <span>
-    Object {
-      "props": Object {
-        "children": Array [
-          "a child",
-        ],
-        "data-foo": "bar",
-      },
-      "type": "p",
-    }
   </span>
 </span>
 `;
