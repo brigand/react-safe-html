@@ -12,10 +12,12 @@
   "license": "MIT",
   "devDependencies": {
     "babelify": "^7.2.0",
-    "browserify": "^13.0.0",
-    "watchify": "^3.7.0"
+    "browserify": "^15.2.0",
+    "react": "^16.2.0",
+    "react-dom-server": "^0.0.5",
+    "watchify": "^3.10.0"
   },
   "dependencies": {
-    "react-dom": "^0.14.7"
+    "react-dom": "^16.2.0"
   }
 }

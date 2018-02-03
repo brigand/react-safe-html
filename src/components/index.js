@@ -4,7 +4,7 @@ exports.createSimpleElement = createSimpleElement;
 exports.makeElements = makeElements;
 
 function createSimpleElement(tag, allowed, extraProps={}) {
-  return (props) => {
+  const C = (props) => {
     var resultProps = {};
     Object.keys(allowed).forEach((allowedKey) => {
       if (props[allowedKey]) {
@@ -22,6 +22,13 @@ function createSimpleElement(tag, allowed, extraProps={}) {
 
     return React.createElement(tag, resultProps, ...(props.children||[]));
   };
+
+  Object.defineProperty(C, 'name', {
+    configurable: true,
+    value: `SafeHtml__${tag}`,
+  });
+
+  return C;
 }
 
 var standardAllowedProps = {
