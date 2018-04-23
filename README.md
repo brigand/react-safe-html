@@ -1,6 +1,8 @@
 react-safe-html allows you to render user provided html (e.g. from ckeditor) safely. You choose how each element
 renders and which attributes get passed through. It has defaults for basic elements and attributes but is fully customizable.
 
+> Note: you may wish to use a more popular library like [react-html-parse](https://www.npmjs.com/package/react-html-parse) or [safe-html](https://www.npmjs.com/package/safe-html).
+
 It uses a fast but flexible parser (htmlparser2) and implements shouldComponentUpdate for performance.
 
 ## status: alpha
