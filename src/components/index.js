@@ -1,4 +1,5 @@
 var React = require('react');
+const renameFunc = require('../renameFunc')
 
 exports.createSimpleElement = createSimpleElement;
 exports.makeElements = makeElements;
@@ -23,10 +24,7 @@ function createSimpleElement(tag, allowed, extraProps={}) {
     return React.createElement(tag, resultProps, ...(props.children||[]));
   };
 
-  Object.defineProperty(C, 'name', {
-    configurable: true,
-    value: `SafeHtml__${tag}`,
-  });
+  renameFunc(C, `SafeHtml__${tag}`);
 
   return C;
 }
